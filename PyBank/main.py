@@ -72,10 +72,10 @@ with open(csvpath, 'r') as csvfile:
     
     
     f= open("PyBank.txt","w+")
-    f.write("Financial Analysis") 
-    f.write("--------------------------------------------------------------------------------")
-    f.write(f'Total months:                       {row_count}')
-    f.write(f'Total:                              ${sum_profits}')
-    f.write(f'Average Change:                     ${average_change}')  
-    f.write(f'Greatest increase in Profits:       {month_max_profit}  ${max_profits}')   
-    f.write(f'Greatest decrease in Profits:       {month_min_profit}  ${min_profits}')   
+    f.write("Financial Analysis\r\n") 
+    f.write("--------------------------------------------------------------------------------\r\n")
+    f.write(f'Total months:                       {row_count}\r\n')
+    f.write(f'Total:                              ${sum_profits}\r\n')
+    f.write(f'Average Change:                     ${average_change}\r\n')  
+    f.write(f'Greatest increase in Profits:       {month_max_profit}  ${max_profits}\r\n')   
+    f.write(f'Greatest decrease in Profits:       {month_min_profit}  ${min_profits}\r\n')   
