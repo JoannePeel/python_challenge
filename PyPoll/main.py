@@ -79,15 +79,15 @@ with open(csvpath, 'r') as csvfile:
 
 
     f= open("PyPoll.txt","w+")
-    f.write("   Election Results") 
-    f.write("-------------------------------------------------------")
-    f.write(f'Total votes:{row_count}')
-    f.write(f'Kahn:      {percent_khan} % ({kahn_votes})')
-    f.write(f'Correy:    {percent_correy} % ({correy_votes})')
-    f.write(f'Li:        {percent_li} % ({li_votes})')
-    f.write(f"O'Tooley:  {percent_ot} % ({ot_votes})")
-    f.write("-------------------------------------------------------")
-    f.write(f'The winner is: {winner}')
-    f.write("-------------------------------------------------------")
+    f.write("   Election Results\r\n") 
+    f.write("-------------------------------------------------------\r\n")
+    f.write(f'Total votes:{row_count}\r\n')
+    f.write(f'Kahn:      {percent_khan} % ({kahn_votes})\r\n')
+    f.write(f'Correy:    {percent_correy} % ({correy_votes})\r\n')
+    f.write(f'Li:        {percent_li} % ({li_votes})\r\n')
+    f.write(f"O'Tooley:  {percent_ot} % ({ot_votes})\r\n")
+    f.write("-------------------------------------------------------\r\n")
+    f.write(f'The winner is: {winner}\r\n')
+    f.write("-------------------------------------------------------\r\n")
 
 
