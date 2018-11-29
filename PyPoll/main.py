@@ -13,10 +13,7 @@ with open(csvpath, 'r') as csvfile:
 #Counts the rows of the file, e.g. total numbers of votes
     for row in data:
         row_count = 1 + sum(1 for row in data) # I have to add 1 because it read already the first2 rows, but header doesn't count
-        print("   Election Results") 
-        print("-------------------------")
-        print(f'Total votes:{row_count}')
-        
+             
 
 
 #d = {}
@@ -63,31 +60,34 @@ with open(csvpath, 'r') as csvfile:
     percent_o = (ot_votes/row_count)*100
     percent_ot = round(percent_o,2)
     #print(percent_ot)
+   
+
+    d = {"Kahn": percent_khan, "Correy": percent_correy, "Li": percent_li, "O'Tooley": percent_ot}
+    
+    winner = max(d, key=d.get)
+    
+    print("   Election Results") 
+    print("---------------------------------------------------------")
+    print(f'Total votes:{row_count}')
     print(f'Kahn:      {percent_khan} % ({kahn_votes})')
     print(f'Correy:    {percent_correy} % ({correy_votes})')
     print(f'Li:        {percent_li} % ({li_votes})')
     print(f"O'Tooley:  {percent_ot} % ({ot_votes})")
-
-  # d[row['Kahn']] = d.get(row['Kahn'], 0) + 1
-        
- 
-#for k in d:
- #   print('{} => {}'.format(k, d[k]))   
-    
-   
+    print("---------------------------------------------------------")
+    print(f'The winner is: {winner}')
+    print("---------------------------------------------------------")
 
 
-       
-    
-    #    if (row[2]) == "Kahn":
-           # kahn_votes = sum(1 for row in data) sum(1 for row in data if str(row) == "Kahn")
-         #   print(kahn_votes)
-     #   elif (row[2]) == "Correy":
-        #    correy_votes = 1 + sum(1 for row in data) 
-       #     print(correy_votes)
-      #  elif (row[2]) == "Li":
-          #  li_votes = 1 + sum(1 for row in data) 
-           # print(li_votes)    
-      #  elif (row[2]) == "O'Tooley":
-            #ot_votes = 1 + sum(1 for row in data) 
-            #print(ot_votes)   
+    f= open("PyPoll.txt","w+")
+    f.write("   Election Results") 
+    f.write("-------------------------------------------------------")
+    f.write(f'Total votes:{row_count}')
+    f.write(f'Kahn:      {percent_khan} % ({kahn_votes})')
+    f.write(f'Correy:    {percent_correy} % ({correy_votes})')
+    f.write(f'Li:        {percent_li} % ({li_votes})')
+    f.write(f"O'Tooley:  {percent_ot} % ({ot_votes})")
+    f.write("-------------------------------------------------------")
+    f.write(f'The winner is: {winner}')
+    f.write("-------------------------------------------------------")
+
+
