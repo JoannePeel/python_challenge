@@ -10,13 +10,10 @@ with open(csvpath, 'r') as csvfile:
     header = next(data)
     #print(f"Header: {header}")
 
-#Counts the rows of the file, e.g. total numbers of votes
-    for row in data:
+
+    for row in data:                            #Counts the rows of the file, e.g. total numbers of votes
         row_count = 1 + sum(1 for row in data) # I have to add 1 because it read already the first2 rows, but header doesn't count
              
-
-
-#d = {}
 with open(csvpath, 'r') as csvfile:
 
     data = csv.reader(csvfile, delimiter=',')
@@ -44,24 +41,18 @@ with open(csvpath, 'r') as csvfile:
         if row[2] == candidate4:
             ot_votes = ot_votes + 1
 
-    #print(kahn_votes)
-    #print(correy_votes)
-    #print(li_votes)
-    #print(ot_votes)
     percent_kh = (kahn_votes/row_count)*100
     percent_khan = round(percent_kh,2)
-    #print(percent_khan)
+
     percent_co = (correy_votes/row_count)*100
     percent_correy = round(percent_co,2)
-    #print(percent_correy)
+    
     percent_l = (li_votes/row_count)*100
     percent_li = round(percent_l,2)
-    #print(percent_li)
+   
     percent_o = (ot_votes/row_count)*100
     percent_ot = round(percent_o,2)
-    #print(percent_ot)
    
-
     d = {"Kahn": percent_khan, "Correy": percent_correy, "Li": percent_li, "O'Tooley": percent_ot}
     
     winner = max(d, key=d.get)
