@@ -1,17 +1,20 @@
 import os
 import csv
 
+# My variables:
+months = []     #this will store a list of dates.
+list1 = []      #this will store a list of profit.
+list2 = []      #stores change
+sum_profits = 0
+
 csvpath = os.path.join('budget_data.csv')
 
 with open(csvpath, 'r') as csvfile:
 
     data = csv.reader(csvfile, delimiter=',')
-    #print(data)
     header = next(data)
-    #print(f"Header: {header}")
-
-#Counts the rows of the file, e.g. the months listed
-    for row in data:
+   
+    for row in data:                            #Counts the rows of the file, e.g. the months listed
         row_count = 1 + sum(1 for row in data) # I have to add 1 because it read already the first2 rows, but header doesn't count
     
 # Sum the content of the second column             
@@ -19,37 +22,26 @@ with open(csvpath, 'r') as csvfile:
     
     data = csv.reader(csvfile, delimiter=',')
     headerline = next(data)
-    sum_profits = 0
+    
     
     for row in data:
         sum_profits += int(row[1])
     
-
-
-
-
-months = []     #this will store a list of dates.
-list1 = []      #this will store a list of profit.
-list2 = []      #stores change
 with open(csvpath, 'r') as csvfile:
     
     data = csv.reader(csvfile, delimiter=',')
     headerline = next(data)
-    # Loop through the data
     
-    for row in data:
+    for row in data:                    # Loop through the data
         months.append(row[0])           #Append the months and profits to new list
         list1.append(float(row[1]))
-    #print(months)
-    #print(list1)
-    
+        
     for i in range(1, len(list1)):
         change = list1[i] - list1[i-1] 
         list2.append(change)
-    #print(list2)
+    
     n = len(list2) 
-    #print(n)
-
+    
     avrg_change = sum(list2) / n 
     average_change = (round(avrg_change,2))
     
